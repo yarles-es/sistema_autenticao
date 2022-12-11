@@ -2,9 +2,10 @@
   "name": "sistema_autenticao",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon ."
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,15 @@
   "bugs": {
     "url": "https://github.com/yarles-es/sistema_autenticao/issues"
   },
-  "homepage": "https://github.com/yarles-es/sistema_autenticao#readme"
+  "homepage": "https://github.com/yarles-es/sistema_autenticao#readme",
+  "dependencies": {
+    "dotenv": "10.0",
+    "express": "4.17",
+    "mysql2": "2.3",
+    "nodemon": "2.0",
+    "sequelize": "6.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "6.2"
+  }
 }

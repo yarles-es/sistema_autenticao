@@ -19,6 +19,7 @@ services:
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
+      # MYSQL_DB_NAME: sistema_autenticacao
       MYSQL_HOST: db
       JWT_SECRET: secretPassword
       API_HOST: 'node'
@@ -30,8 +31,8 @@ services:
   #---------------------------------------------------#
 
   db:
-    container_name: sistema_autenticação_db
     image: mysql:8.0.23
+    container_name: sistema_autenticacao_db
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
     ports:
