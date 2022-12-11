@@ -3,25 +3,27 @@ version: "3"
 services:
   node:
     image: node:16.14
+    build: .
     container_name: sistema_autenticacao
     tty: true
     stdin_open: true
     command: bash
     restart: always
-    working_dir: home/node/app
+    working_dir: /app
     volumes:
-      - ./:/home/node/app
+      - ./:/app
     depends_on:
       - db
     ports:
       - 3000:3000
-      - 9229:9229
     environment:
       MYSQL_USER: root
-      MYSQL_PASSWORD: MYSQL_PASSWORD
+      MYSQL_PASSWORD: password
       MYSQL_HOST: db
-      PORT: '3000'
-      HOST: sistema_autenticacao
+      JWT_SECRET: secretPassword
+      API_HOST: 'node'
+      API_PORT: 3000
+      NODE_ENV: 'development'
     networks:
       - sistema_autenticacao_net
 
