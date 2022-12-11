@@ -1,0 +1,20 @@
+{
+  "name": "sistema_autenticao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yarles-es/sistema_autenticao.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yarles-es/sistema_autenticao/issues"
+  },
+  "homepage": "https://github.com/yarles-es/sistema_autenticao#readme"
+}
