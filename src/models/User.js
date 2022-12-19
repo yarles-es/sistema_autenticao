@@ -19,14 +19,16 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
       cpf: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
       birthDate: {
-        type: DataTypes.DATE,
-        allowNull,
+        type: DataTypes.DATEONLY,
+        allowNull: false,
       },
       motherName: {
         type: DataTypes.STRING,

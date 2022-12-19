@@ -1,9 +1,9 @@
 const { User } = require('../models');
 
 const createUser = async (userInfo) => {
-  const { firsName, lastName, email, cpf, birthDate, motherName } = userInfo;
+  const { firstName, lastName, email, cpf, birthDate, motherName } = userInfo;
   const newUser = await User.create({
-    firsName,
+    firstName,
     lastName,
     email,
     cpf,

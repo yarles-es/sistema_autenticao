@@ -5,7 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "nodemon ."
+    "debug": "nodemon .",
+    "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "drop": "npx sequelize-cli db:drop"
   },
   "repository": {
     "type": "git",
@@ -19,8 +21,10 @@
   },
   "homepage": "https://github.com/yarles-es/sistema_autenticao#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "dotenv": "10.0",
     "express": "4.17",
+    "jsonwebtoken": "8.5",
     "mysql2": "2.3",
     "nodemon": "2.0",
     "sequelize": "6.3"

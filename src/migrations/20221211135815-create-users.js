@@ -22,19 +22,22 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
       cpf: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
       birthDate: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false,
         field: "birth_date",
       },
       motherName: {
         type: Sequelize.STRING,
         allowNull: false,
+        field: "mother_name",
       },
     });
   },
