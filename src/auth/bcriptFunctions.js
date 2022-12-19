@@ -8,7 +8,7 @@ const encrypt = async (password) => {
 const decrypt = async (password, dataBasePassword) => {
   const hash = await bcrypt.compare(password, dataBasePassword);
   return hash;
-}
+};
 
 module.exports = {
   encrypt,
