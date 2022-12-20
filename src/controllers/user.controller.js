@@ -1,5 +1,5 @@
 const { userService, accountService } = require('../services');
-const { createToken, verifyToken } = require('../auth/jwtFunctions');
+const { createToken } = require('../auth/jwtFunctions');
 
 const createUser = async (req, res) => {
   const infoUser = req.body;

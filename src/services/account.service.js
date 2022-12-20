@@ -1,5 +1,5 @@
 const { Account } = require('../models');
-const { encrypt } = require('../auth/bcriptFunctions');
+const { encrypt, decrypt } = require('../auth/bcriptFunctions');
 
 const createAccount = async (idUser, { email, password }) => {
   const hash = await encrypt(password);
@@ -8,9 +8,19 @@ const createAccount = async (idUser, { email, password }) => {
     email,
     password: hash,
   });
-  return newAccount
+  return newAccount;
+}
+
+const login = async (email,requestPassword) => {
+  const { password } = await Account.findOne({
+    where: { email },
+  });
+  const login = await decrypt(requestPassword, password);
+
+  return login;
 }
 
 module.exports = {
   createAccount,
-}
+  login,
+};
