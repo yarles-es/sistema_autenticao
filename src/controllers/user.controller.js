@@ -5,11 +5,11 @@ const createUser = async (req, res) => {
   const infoUser = req.body;
   const newUser = await userService.createUser(infoUser);
 
-  const newAccount = await accountService.createAccount(newUser.dataValues.id, infoUser);
-  if(newUser.dataValues.email && newAccount.dataValues.email) {
-    const token = createToken(newAccount.dataValues.email);
+  const newAccount = await accountService.createAccount(newUser.id, infoUser);
+  if(newUser.email && newAccount.email) {
+    const token = createToken(newAccount.email);
     return res.status(201).json({ 
-      message: `Conta cadastrada com sucesso no email: ${newAccount.dataValues.email}`,
+      message: `Conta cadastrada com sucesso no email: ${newAccount.email}`,
       token,
     });
   }
