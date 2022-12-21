@@ -20,9 +20,30 @@ const getByEmail = async (email) => {
   return user;
 }
 
+const getById = async (id) => {
+  const user = await User.findByPk(id);
+
+  return user;
+}
+
+const getAllUsers = async () => {
+  const users = await User.findAll();
+
+  return users;
+}
+
+const deleteUser = async (id) => {
+  const deleteUser = await User.destroy({ where: { id }});
+
+  return deleteUser;
+}
+
 
 
 module.exports = {
   createUser,
   getByEmail,
+  getAllUsers,
+  deleteUser,
+  getById,
 };

@@ -1,5 +1,5 @@
 const { userService, accountService } = require('../services');
-const { createToken } = require('../auth/jwtFunctions');
+const { createToken, verifyToken } = require('../auth/jwtFunctions');
 
 const createUser = async (req, res) => {
   const infoUser = req.body;
@@ -16,6 +16,23 @@ const createUser = async (req, res) => {
   return res.status(500).json({ message: "erro interno" });
 }
 
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  const { authorization } = req.headers;
+
+  const user = await userService.getById(id);
+
+  const validateToken = verifyToken(authorization);
+
+  console.log(user);
+  if (user.email === validateToken.data) {
+    await userService.deleteUser(user.id)
+    return res.status(200).json({ message: "Usuario excluido com sucesso!" });
+  }
+  return res.status(400).json({ message: "Não foi possível excluir usuario" })
+}
+
 module.exports = {
   createUser,
+  deleteUser,
 };
