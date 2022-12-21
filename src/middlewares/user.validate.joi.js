@@ -35,6 +35,8 @@ validateCpf = async (req, res, next) => {
   const { cpf } = req.body
 
     const findCpf = await User.findOne({ where: { cpf } })
+
+    if (!findCpf) return next();
   
     if (cpf === findCpf.cpf) {
       return res.status(400).json({ message: "cpf já existente" })
