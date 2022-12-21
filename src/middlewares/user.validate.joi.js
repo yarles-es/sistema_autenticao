@@ -30,6 +30,20 @@ const validateUser = async (req, res, next) => {
   return res.status(400).json({ message: error.details[0].message });
 }
 
+validateCpf = async (req, res, next) => {
+  const { User } = require('../models');
+  const { cpf } = req.body
+
+    const findCpf = await User.findOne({ where: { cpf } })
+  
+    if (cpf === findCpf.cpf) {
+      return res.status(400).json({ message: "cpf já existente" })
+    }
+
+  next();
+}
+
 module.exports = {
   validateUser,
+  validateCpf,
 }
