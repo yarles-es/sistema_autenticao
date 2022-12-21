@@ -12,10 +12,13 @@ const createAccount = async (idUser, { email, password }) => {
 }
 
 const login = async (email,requestPassword) => {
-  const { password } = await Account.findOne({
+  const account = await Account.findOne({
     where: { email },
   });
-  const login = await decrypt(requestPassword, password);
+
+  if(!account) return null;
+
+  const login = await decrypt(requestPassword, account.password);
 
   return login;
 }
